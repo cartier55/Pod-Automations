@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://autopods.cisco.com/pod/1952 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="referrer" content="no-referrer">
+
+    <title>AutoPods</title>
+
+    <link rel="shortcut icon" href="https://autopods.cisco.com/img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="./AutoPods_files/default.css">
+    <link rel="stylesheet" href="./AutoPods_files/lab.css">
+	<link rel="stylesheet" href="./AutoPods_files/bootstrap.css">
+    <link rel="stylesheet" href="./AutoPods_files/bootstrap(1).css">
+    <link rel="stylesheet" href="./AutoPods_files/animate.css">
+    <link rel="stylesheet" href="./AutoPods_files/bootstrap-toggle.min.css">
+    <link rel="stylesheet" href="./AutoPods_files/select2.css">
+	<link rel="stylesheet" href="./AutoPods_files/all.min.css">
+    <link rel="stylesheet" href="./AutoPods_files/footable.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./AutoPods_files/icon_font.css">
+    <link rel="stylesheet" href="./AutoPods_files/overrides.css">
+
+    <script src="./AutoPods_files/jquery-3.1.0.min.js.download"></script>
+    <script src="./AutoPods_files/moment.min.js.download"></script>
+
+    <script src="./AutoPods_files/ap.72f5ed5b8cf11ae1dfad903638ddb359bb576d41.js.download"></script>
+	<script>
+
+        update_timezone(Intl.DateTimeFormat().resolvedOptions().timeZone);
+
+    
+        var cuser		= "carjames";
+        var usercn      = "Carter James";
+        var userorg     = "TS";
+        var delivery_partner = "No";
+        var priv_full_admin 	= true;
+        var priv_user_admin 	= true;
+        var priv_pod_admin 	= true;
+        var priv_use_pods 	= true;
+        var pod_admin_for_lab = "14";
+        var priv_lab_id = "14";
+        var asd_token = "takFEXXkw1NYRbvDomJtN0xpJ0Qg";
+        var enable_tooltips = 0;
+
+            setInterval(function(){
+                    // interval set to 600000 (5 min)
+                    var json = {
+                        handler: 'admin',
+                        action: 'sso_token_checks',
+                        username: 'carjames', 
+                        toFrontend: true
+                    };
+
+                    post(json, function(data) {
+                        if(data.error){display_error(data.error_detail); window.location = 'https://cloudsso.cisco.com/as/authorization.oauth2?response_type=code&client_id=cxlabs_autopods&redirect_uri=https%3A%2F%2Fautopods.cisco.com%2Fauthorize';}
+                        if(data.reply.valid_session==false) { window.location = 'https://cloudsso.cisco.com/as/authorization.oauth2?response_type=code&client_id=cxlabs_autopods&redirect_uri=https%3A%2F%2Fautopods.cisco.com%2Fauthorize'; }
+                        if(data.reply.asd_access_token != '') { asd_token = data.reply.asd_access_token; }
+                    });
+
+            },600000);    
+        
+        
+    </script>
+
+</head>
+
+<body style="font-size:11px;">
+
+    <!--[if lt IE 9]>
+    <script src="/js/lib/json3.min.js"></script>
+    <![endif]-->
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+                <img src="./AutoPods_files/autopods.png" class="ap-logo">
+				<a class="navbar-brand" href="https://autopods.cisco.com/">AutoPods</a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main-menu" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+			</div>
+			<div id="navbar-main-menu" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="">
+						<a href="https://autopods.cisco.com/pod/1952#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-server" aria-hidden="true"></i>&nbsp;&nbsp; Pods <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+                            <li><a href="https://autopods.cisco.com/pods">All Pods</a></li>
+							<li><a href="https://autopods.cisco.com/pods/lab/CX%20Labs%20SJ">CX Labs SJ</a></li><li><a href="https://autopods.cisco.com/pods/lab/CX%20Labs%20RTP%20(TS)">CX Labs RTP (TS)</a></li><li><a href="https://autopods.cisco.com/pods/lab/CX%20Labs%20RCDN%20(TS)">CX Labs RCDN (TS)</a></li><li><a href="https://autopods.cisco.com/pods/lab/CX%20Labs%20BGL%20(TS)">CX Labs BGL (TS)</a></li><li><a href="https://autopods.cisco.com/pods/lab/CX%20Asgard">CX Asgard</a></li><li><a href="https://autopods.cisco.com/pods/lab/CX%20Labs%20MXC%20(TS)">CX Labs MXC (TS)</a></li><li><a href="https://autopods.cisco.com/pods/lab/CX%20Labs%20BRU%20(TS)">CX Labs BRU (TS)</a></li><li><a href="https://autopods.cisco.com/pods/lab/DCSG-LAB">DCSG-LAB</a></li><li><a href="https://autopods.cisco.com/pods/lab/CX%20Labs%20KRK%20(TS)">CX Labs KRK (TS)</a></li><li><a href="https://autopods.cisco.com/pods/lab/CX%20Labs%20TKY%20(TS)">CX Labs TKY (TS)</a></li><li><a href="https://autopods.cisco.com/pods/lab/CX%20Labs%20SYD%20(TS)">CX Labs SYD (TS)</a></li><li><a href="https://autopods.cisco.com/pods/lab/CX%20Labs%20DLC%20(TS)">CX Labs DLC (TS)</a></li><li><a href="https://autopods.cisco.com/pods/lab/CX%20Labs%20BJN%20(TS)">CX Labs BJN (TS)</a></li><li><a href="https://autopods.cisco.com/pods/lab/CX%20Labs%20RTP%20(AS)">CX Labs RTP (AS)</a></li><li><a href="https://autopods.cisco.com/pods/lab/CX%20Labs%20SYD%20(AS)">CX Labs SYD (AS)</a></li><li><a href="https://autopods.cisco.com/pods/lab/CX%20Labs%20RCDN%20(AS)">CX Labs RCDN (AS)</a></li><li><a href="https://autopods.cisco.com/pods/lab/CX%20Labs%20BGL%20(Dynamatrix%20SV%20Team%20Demo)">CX Labs BGL (Dynamatrix SV Team Demo)</a></li><li><a href="https://autopods.cisco.com/pods/lab/Shared%20Solutions">Shared Solutions</a></li><li><a href="https://autopods.cisco.com/pods/lab/Solutions%20Labs%20APJC%20SDWAN">Solutions Labs APJC SDWAN</a></li><li><a href="https://autopods.cisco.com/pods/lab/CX%20Labs%20RTP10%20(TS)">CX Labs RTP10 (TS)</a></li><li><a href="https://autopods.cisco.com/pods/lab/CX%20Labs%20BGL%20BB%20(TS)">CX Labs BGL BB (TS)</a></li>						</ul>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav">
+					<li class="">
+						<a href="https://autopods.cisco.com/pod/1952#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench" aria-hidden="true"></i>&nbsp;&nbsp; Tools <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+                            <li><a target="_blank" href="https://calo-new.cisco.com/#/tools/case_queue">Case Queue</a></li>
+							<li><a target="_blank" href="https://calo-new.cisco.com/#/tools/orderx">OrderX</a></li>
+							<li><a target="_blank" href="https://calo-docs.cisco.com/doku.php?id=external:autopods:start">Autopod Docs</a></li>
+							<li><a target="_blank" href="http://calo.cisco.com/">CALO Omnitool</a></li>
+						</ul>
+					</li>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+
+                    <li class=""><a href="https://autopods.cisco.com/pod/1952#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Administration &nbsp;<span class="caret"></span></a><ul class="dropdown-menu"><li><a href="https://autopods.cisco.com/create/pod"><i class="fa fa-plus-square" aria-hidden="true"></i> &nbsp;Create Pod</a></li><li><a href="https://autopods.cisco.com/manage/pod/1952"><i class="fa fa-cog" aria-hidden="true"></i> &nbsp;Manage Pod</a></li><li><a href="https://autopods.cisco.com/manage/labs"><i class="fa fa-cogs" aria-hidden="true"></i> &nbsp;Manage Labs</a></li><li><a href="https://autopods.cisco.com/manage/notifications"><i class="fas fa-bell"></i> &nbsp;Manage Notifications</a></li><li><a href="https://autopods.cisco.com/admin"><i class="fa fa-users" aria-hidden="true"></i>&nbsp; Site Administration</a></li></ul></li>
+                    <li><a href="http://cxlabs-changelog.cisco.com/team/at/products/autopod/releases/2019-12-04/" target="_blank">Release Notes</a></li>
+
+					<li class="">
+						<a href="https://autopods.cisco.com/pod/1952#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Carter James (TS)&nbsp;&nbsp; <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+
+							<li><a href="https://autopods.cisco.com/personal_reservations"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp; My Reservations</a></li>
+							<li><a href="https://autopods.cisco.com/snapshots"><i class="fa fa-camera" aria-hidden="true"></i>&nbsp;&nbsp; My Snapshots</a></li>
+                            <li><a href="https://autopods.cisco.com/settings"><i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;&nbsp; My Settings</a></li>
+                            <li><a href="https://autopods.cisco.com/reporting"><i class="fa fa-chart-bar" aria-hidden="true"></i>&nbsp;&nbsp; Reporting</a></li>						</ul>
+					</li>
+
+				</ul>
+
+			</div>
+		</div>
+	</nav>
+
+        <script>
+
+        $('#eula_accept').click(function(){
+            var json = {
+                handler		    : "account",
+                action          : "trigger_license_updates",
+                eula	        : 'eula',
+                access_token    : "takFEXXkw1NYRbvDomJtN0xpJ0Qg",
+                username        : "carjames"
+            };
+            console.log(json);
+            post(json, function(data){
+
+                window.location.reload();
+            });
+        });
+        $('#k9_accept').click(function(){
+            var json = {
+                handler		    : "account",
+                action          : "trigger_license_updates",
+                k9	            : 'k9',
+                access_token    : "takFEXXkw1NYRbvDomJtN0xpJ0Qg",
+                username        : "carjames"
+            };
+            console.log(json);
+            post(json, function(data){
+
+                window.location.reload();
+            });
+        });
+    </script>
+
+    <div class="skeleton modal fade" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-m">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-window-close"></i></button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+    </div>
+
+<!-- start main container -->
+<div id="main_container"><div style="background-color: #f8efc0; padding: 2px 10px; margin-bottom: 4px;"><a style="width:30px;color:#222;" href="javascript:void(0)" onclick="viewNotification(36)"><h5 style="float:left; margin-right: 10px;">Manual Change Image Process</h5><h5 style="float:left; margin-right: 10px;">[ Notice for RTP :: Updated 2020-04-06 08:59am EDT ]</h5></a><div style="clear:both;"></div></div><div style="background-color: #C4F0F5; padding: 2px 10px; margin-bottom: 4px;"><a style="width:30px;color:#222;" href="javascript:void(0)" onclick="viewNotification(45)"><h5 style="float:left; margin-right: 10px;">What's New?, Click here to Watch Quick Demo Videos</h5><h5 style="float:left; margin-right: 10px;">[ Announcement for All Sites :: Updated 2021-02-17 02:24am EST ]</h5></a><div style="clear:both;"></div></div><br>
+
+            <link rel="stylesheet" href="./AutoPods_files/lab.css">
+            <link rel="stylesheet" href="./AutoPods_files/jquery.transfer.css">
+            <link rel="stylesheet" href="./AutoPods_files/tipped.css">
+            
+            <style>
+                div.toggle.btn.btn-xs.btn-default.off { height: 27px; }
+                div.toggle.btn.btn-xs.btn-primary { height: 27px; }
+            </style>
+            
+            <script type="text/javascript">
+                        
+                var working_lab			=14;
+                var original_priv_pod_admin	= true;
+                var original_priv_use_pods	= true;
+                var priv_pod_admin			=true;
+                var priv_use_pods			=true;
+                var priv_lab_id				=14;
+                
+                var admin_or_pod_admin = 1;
+                var admin_or_owner = 1;
+                              
+                update_ui_on_timer(1952);
+                var devices_in_progress = [];
+                [].forEach(function(j){
+                    temp_disable_device_automation_buttons(j['device_id']);
+                });
+            </script><h1 class="pod_title">RTP-Flex-Pool-13</h1><div style="clear: both;"></div><h4 class="pod_note">Device Pool for Hybrid PODs</h4><div style="clear: both;"></div>	
+	<script type="text/javascript">
+        jQuery(function($){
+            $('[data-toggle="pod_popover"]').popover({
+                container: 'body', 
+                html: true,
+                content: function(){
+                        return $('.device_health_content').html();
+                    },
+                trigger: 'hover', 
+            });
+        });
+	</script> <div style="clear: both;"></div><div class="status_badges"><h4 style="float: left; margin-right: 3px;"><span class="label label-primary site_badge">Site :: RTP</span></h4><h4 style="float: left;"><span class="label pod_in_development">Pod Currently In Development</span></h4><div style="clear: both;"></div></div><div style="clear: both"></div><div id="pod_info" class="panel-group pod-info" role="tablist" aria-multiselectable="true">
+
+    <div class="pod-ftp">
+        <h4 class="panel-title">File Transfer Information</h4>
+        <span class="hostname"><b>Hostname:</b>&nbsp;10.207.204.10&nbsp;</span><span>&nbsp;<b>Username:</b>&nbsp;calo&nbsp;</span><span>&nbsp;<b>Password:</b>&nbsp;calo&nbsp;</span><span>&nbsp;<b>Protocol:</b>&nbsp;FTP / TFTP</span>    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="lab_dns_info_heading">
+            <h4 class="panel-title">
+                <a class="collapsed" data-parent="#lab_dns_info" data-toggle="collapse" href="https://autopods.cisco.com/pod/1952#lab_dns_info" aria-controls="lab_dns_info">Lab DNS </a>
+            </h4>
+        </div>
+        <div id="lab_dns_info" class="panel-collapse collapse" role="tabpanel" aria-labelledby="lab_dns_info">
+            <div class="pod-ftp" style="justify-content: flex-start ">
+                <h4 class="panel-title">DNS Server Information</h4>
+                <span class="hostname"><b>DNS Server IP:</b>&nbsp;172.18.108.43,172.18.108.34&nbsp;</span><span class="hostname"><b>DNS Server Docs:</b>&nbsp;<a href="https://autopods.cisco.com/pod/1952" target="_blank"></a>&nbsp;</span>            </div>
+            <div class="pod-ftp" style="justify-content: flex-start ">
+                <h4 class="panel-title">NTP Server Information</h4>
+                <span class="hostname"><b>NTP Server IP:</b>&nbsp;ntp.esl.cisco.com,calo-ntp-1.cisco.com&nbsp;</span><span class="hostname"><b>NTP Server Docs:</b>&nbsp;<a href="https://autopods.cisco.com/pod/1952" target="_blank"></a>&nbsp;</span>            </div>
+            <div class="pod-ftp" style="justify-content: flex-start ">
+                <h4 class="panel-title">Proxy Settings Information</h4>
+                <span class="hostname"><b>Proxy Settings Details:</b>&nbsp;proxy.esl.cisco.com:80&nbsp;</span><span class="hostname"><b>Proxy Settings Docs:</b>&nbsp;<a href="https://autopods.cisco.com/pod/1952" target="_blank"></a>&nbsp;</span>            </div>
+
+
+        </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="pod_device_inventory_heading">
+            <h4 class="panel-title">
+                <a class="" data-parent="#pod_info" data-toggle="collapse" href="https://autopods.cisco.com/pod/1952#pod_device_inventory" aria-controls="pod_device_inventory" aria-expanded="true">Device Inventory</a>
+            </h4>
+        </div>
+        <div id="pod_device_inventory" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="pod_device_inventory_heading" aria-expanded="true" style="">
+            <table id="pod_info_table" class="table table-striped panel-body">
+            <thead>
+            <tr>
+                <td>Device</td>
+                <td>Location</td>
+                <td>Platform</td>
+                <td>EITMS</td>
+                <td>Default Interface</td>
+                <td>Default IP</td>
+                <td>Default Netmask</td>
+                <td>Default Gateway</td>
+            </tr>
+            </thead>
+
+            <tbody class="table-hover">
+            <tr><td>F241-07-01-3750-1</td><td>Aisle 07 / Rack 1</td><td>IOS</td><td>024A1E9</td><td>Not Defined</td><td>Not Defined</td><td>Not Defined</td><td>Not Defined</td></tr><tr><td>F241-07-01-3750-2</td><td>Aisle 07 / Rack 1</td><td>IOS</td><td>0220E91</td><td>Not Defined</td><td>Not Defined</td><td>Not Defined</td><td>Not Defined</td></tr><tr><td>F241-07-01-3700-3</td><td>Aisle 07 / Rack 1</td><td>IOS</td><td>ITM02796806</td><td>Not Defined</td><td>Not Defined</td><td>Not Defined</td><td>Not Defined</td></tr><tr><td>F241.01.07-ASR1000-1</td><td>Aisle 07 / Rack 1</td><td>IOS-XE</td><td>0284CFE</td><td>Not Defined</td><td>Not Defined</td><td>Not Defined</td><td>Not Defined</td></tr><tr><td>F241.01.07-ASR1000-2</td><td>Aisle 07 / Rack 1</td><td>IOS-XE</td><td>0284CE0</td><td>Not Defined</td><td>Not Defined</td><td>Not Defined</td><td>Not Defined</td></tr><tr><td>F241.07.01-3700-4</td><td>Aisle 07 / Rack 1</td><td>IOS</td><td>ITM02636538</td><td>Not Defined</td><td>Not Defined</td><td>Not Defined</td><td>Not Defined</td></tr><tr><td>F241.07.01-3850</td><td>Aisle 07 / Rack 1</td><td>IOS-XE</td><td>0073CF7</td><td>Not Defined</td><td>Not Defined</td><td>Not Defined</td><td>Not Defined</td></tr><tr><td>F241.07.01-ASR1002-HX-1</td><td>Aisle 07 / Rack 1</td><td>IOS-XE</td><td>02989D4</td><td>Not Defined</td><td>Not Defined</td><td>Not Defined</td><td>Not Defined</td></tr><tr><td>F241.07.01-ASR1002-HX-2</td><td>Aisle 07 / Rack 1</td><td>IOS-XE</td><td>02989AF</td><td>Not Defined</td><td>Not Defined</td><td>Not Defined</td><td>Not Defined</td></tr>            </tbody>
+        </table>
+        </div>
+    </div>
+
+</div><div class="container-fluid"><div class="btn-group pod_control_buttons" role="group" aria-label="podControlButtons"><button id="btn_pod_add_device" title="Add Device to Pod" class="btn btn-default btn-sm podsnapshot" onclick="addNewDevice(1952)"><i class="fa fa-plus-square"></i> Add Device</button><button id="btn_pod_manage_pod" title="Manage Pod" class="btn btn-default btn-sm podsnapshot" onclick="full_update_pod(1952)"><i class="fa fa-cog"></i> Manage Pod</button><button id="btn_pod_clear_errors" title="Clear all errors for pod [RTP-Flex-Pool-13]" class="btn btn-default btn-sm podclearerrors " onclick="clear_all_pod_device_errors(1952)"><i class="fa fa-minus-circle" aria-hidden="true"></i> Clear All Errors</button><button id="btn_pod_clear_automation" title="Clear all errors for pod [RTP-Flex-Pool-13]" class="btn btn-default btn-sm clear_automation " onclick="clear_all_pod_automation_status(1952)"><i class="fa fa-minus-circle" aria-hidden="true"></i>&nbsp;Clear Automation Status</button><button id="btn_pod_clear_lines" title="Clear all lines for pod [RTP-Flex-Pool-13]" class="btn btn-default btn-sm podclearlines " onclick="clear_all_pod_device_lines(1952)"><i class="fa fa-terminal" aria-hidden="true"></i> Clear All Lines</button></div></div>		
+	<script type="text/javascript">
+        jQuery(function($){
+            $('[data-toggle="device_popover"]').popover({
+                container: 'body', 
+                html: true,
+                title: 'Recent Support Test:', 
+                content: function(){
+                        var id = $(this).attr('id'); 
+                        return $('#device_health_db_'+id).html();
+                    },
+                trigger: 'hover',
+            });
+           $('body').on('click', function (e) {
+                //did not click a popover toggle or popover
+                if ($(e.target).data('toggle') != 'device_popover') { 
+                    $('[data-toggle="device_popover"]').popover('hide');
+                }
+           });
+        });
+	</script>
+	<script type="text/javascript">
+        jQuery(function($){
+            $('[data-toggle="device_autocase_popover"]').popover({
+                container: 'body',
+                html: true,
+                title: 'OT6 Case Opened',
+                content: function(){
+                        var id = $(this).attr('id'); 
+                        return $('#autocase_'+id).html();
+                    },
+                trigger: 'hover',
+            });
+           $('body').on('click', function (e) {
+                //did not click a popover toggle or popover
+                if ($(e.target).data('toggle') != 'device_autocase_popover') {
+                    $('[data-toggle="device_autocase_popover"]').popover('hide');
+                }
+           });
+        });
+	</script>		
+	<script type="text/javascript">
+        jQuery(function($){
+            $('[data-toggle="device_popover"]').popover({
+                container: 'body', 
+                html: true,
+                title: 'Recent Support Test:', 
+                content: function(){
+                        var id = $(this).attr('id'); 
+                        return $('#device_health_db_'+id).html();
+                    },
+                trigger: 'hover',
+            });
+           $('body').on('click', function (e) {
+                //did not click a popover toggle or popover
+                if ($(e.target).data('toggle') != 'device_popover') { 
+                    $('[data-toggle="device_popover"]').popover('hide');
+                }
+           });
+        });
+	</script>
+	<script type="text/javascript">
+        jQuery(function($){
+            $('[data-toggle="device_autocase_popover"]').popover({
+                container: 'body',
+                html: true,
+                title: 'OT6 Case Opened',
+                content: function(){
+                        var id = $(this).attr('id'); 
+                        return $('#autocase_'+id).html();
+                    },
+                trigger: 'hover',
+            });
+           $('body').on('click', function (e) {
+                //did not click a popover toggle or popover
+                if ($(e.target).data('toggle') != 'device_autocase_popover') {
+                    $('[data-toggle="device_autocase_popover"]').popover('hide');
+                }
+           });
+        });
+	</script>		
+	<script type="text/javascript">
+        jQuery(function($){
+            $('[data-toggle="device_popover"]').popover({
+                container: 'body', 
+                html: true,
+                title: 'Recent Support Test:', 
+                content: function(){
+                        var id = $(this).attr('id'); 
+                        return $('#device_health_db_'+id).html();
+                    },
+                trigger: 'hover',
+            });
+           $('body').on('click', function (e) {
+                //did not click a popover toggle or popover
+                if ($(e.target).data('toggle') != 'device_popover') { 
+                    $('[data-toggle="device_popover"]').popover('hide');
+                }
+           });
+        });
+	</script>
+	<script type="text/javascript">
+        jQuery(function($){
+            $('[data-toggle="device_autocase_popover"]').popover({
+                container: 'body',
+                html: true,
+                title: 'OT6 Case Opened',
+                content: function(){
+                        var id = $(this).attr('id'); 
+                        return $('#autocase_'+id).html();
+                    },
+                trigger: 'hover',
+            });
+           $('body').on('click', function (e) {
+                //did not click a popover toggle or popover
+                if ($(e.target).data('toggle') != 'device_autocase_popover') {
+                    $('[data-toggle="device_autocase_popover"]').popover('hide');
+                }
+           });
+        });
+	</script>		
+	<script type="text/javascript">
+        jQuery(function($){
+            $('[data-toggle="device_popover"]').popover({
+                container: 'body', 
+                html: true,
+                title: 'Recent Support Test:', 
+                content: function(){
+                        var id = $(this).attr('id'); 
+                        return $('#device_health_db_'+id).html();
+                    },
+                trigger: 'hover',
+            });
+           $('body').on('click', function (e) {
+                //did not click a popover toggle or popover
+                if ($(e.target).data('toggle') != 'device_popover') { 
+                    $('[data-toggle="device_popover"]').popover('hide');
+                }
+           });
+        });
+	</script>
+	<script type="text/javascript">
+        jQuery(function($){
+            $('[data-toggle="device_autocase_popover"]').popover({
+                container: 'body',
+                html: true,
+                title: 'OT6 Case Opened',
+                content: function(){
+                        var id = $(this).attr('id'); 
+                        return $('#autocase_'+id).html();
+                    },
+                trigger: 'hover',
+            });
+           $('body').on('click', function (e) {
+                //did not click a popover toggle or popover
+                if ($(e.target).data('toggle') != 'device_autocase_popover') {
+                    $('[data-toggle="device_autocase_popover"]').popover('hide');
+                }
+           });
+        });
+	</script>		
+	<script type="text/javascript">
+        jQuery(function($){
+            $('[data-toggle="device_popover"]').popover({
+                container: 'body', 
+                html: true,
+                title: 'Recent Support Test:', 
+                content: function(){
+                        var id = $(this).attr('id'); 
+                        return $('#device_health_db_'+id).html();
+                    },
+                trigger: 'hover',
+            });
+           $('body').on('click', function (e) {
+                //did not click a popover toggle or popover
+                if ($(e.target).data('toggle') != 'device_popover') { 
+                    $('[data-toggle="device_popover"]').popover('hide');
+                }
+           });
+        });
+	</script>
+	<script type="text/javascript">
+        jQuery(function($){
+            $('[data-toggle="device_autocase_popover"]').popover({
+                container: 'body',
+                html: true,
+                title: 'OT6 Case Opened',
+                content: function(){
+                        var id = $(this).attr('id'); 
+                        return $('#autocase_'+id).html();
+                    },
+                trigger: 'hover',
+            });
+           $('body').on('click', function (e) {
+                //did not click a popover toggle or popover
+                if ($(e.target).data('toggle') != 'device_autocase_popover') {
+                    $('[data-toggle="device_autocase_popover"]').popover('hide');
+                }
+           });
+        });
+	</script>		
+	<script type="text/javascript">
+        jQuery(function($){
+            $('[data-toggle="device_popover"]').popover({
+                container: 'body', 
+                html: true,
+                title: 'Recent Support Test:', 
+                content: function(){
+                        var id = $(this).attr('id'); 
+                        return $('#device_health_db_'+id).html();
+                    },
+                trigger: 'hover',
+            });
+           $('body').on('click', function (e) {
+                //did not click a popover toggle or popover
+                if ($(e.target).data('toggle') != 'device_popover') { 
+                    $('[data-toggle="device_popover"]').popover('hide');
+                }
+           });
+        });
+	</script>
+	<script type="text/javascript">
+        jQuery(function($){
+            $('[data-toggle="device_autocase_popover"]').popover({
+                container: 'body',
+                html: true,
+                title: 'OT6 Case Opened',
+                content: function(){
+                        var id = $(this).attr('id'); 
+                        return $('#autocase_'+id).html();
+                    },
+                trigger: 'hover',
+            });
+           $('body').on('click', function (e) {
+                //did not click a popover toggle or popover
+                if ($(e.target).data('toggle') != 'device_autocase_popover') {
+                    $('[data-toggle="device_autocase_popover"]').popover('hide');
+                }
+           });
+        });
+	</script>		
+	<script type="text/javascript">
+        jQuery(function($){
+            $('[data-toggle="device_popover"]').popover({
+                container: 'body', 
+                html: true,
+                title: 'Recent Support Test:', 
+                content: function(){
+                        var id = $(this).attr('id'); 
+                        return $('#device_health_db_'+id).html();
+                    },
+                trigger: 'hover',
+            });
+           $('body').on('click', function (e) {
+                //did not click a popover toggle or popover
+                if ($(e.target).data('toggle') != 'device_popover') { 
+                    $('[data-toggle="device_popover"]').popover('hide');
+                }
+           });
+        });
+	</script>
+	<script type="text/javascript">
+        jQuery(function($){
+            $('[data-toggle="device_autocase_popover"]').popover({
+                container: 'body',
+                html: true,
+                title: 'OT6 Case Opened',
+                content: function(){
+                        var id = $(this).attr('id'); 
+                        return $('#autocase_'+id).html();
+                    },
+                trigger: 'hover',
+            });
+           $('body').on('click', function (e) {
+                //did not click a popover toggle or popover
+                if ($(e.target).data('toggle') != 'device_autocase_popover') {
+                    $('[data-toggle="device_autocase_popover"]').popover('hide');
+                }
+           });
+        });
+	</script>		
+	<script type="text/javascript">
+        jQuery(function($){
+            $('[data-toggle="device_popover"]').popover({
+                container: 'body', 
+                html: true,
+                title: 'Recent Support Test:', 
+                content: function(){
+                        var id = $(this).attr('id'); 
+                        return $('#device_health_db_'+id).html();
+                    },
+                trigger: 'hover',
+            });
+           $('body').on('click', function (e) {
+                //did not click a popover toggle or popover
+                if ($(e.target).data('toggle') != 'device_popover') { 
+                    $('[data-toggle="device_popover"]').popover('hide');
+                }
+           });
+        });
+	</script>
+	<script type="text/javascript">
+        jQuery(function($){
+            $('[data-toggle="device_autocase_popover"]').popover({
+                container: 'body',
+                html: true,
+                title: 'OT6 Case Opened',
+                content: function(){
+                        var id = $(this).attr('id'); 
+                        return $('#autocase_'+id).html();
+                    },
+                trigger: 'hover',
+            });
+           $('body').on('click', function (e) {
+                //did not click a popover toggle or popover
+                if ($(e.target).data('toggle') != 'device_autocase_popover') {
+                    $('[data-toggle="device_autocase_popover"]').popover('hide');
+                }
+           });
+        });
+	</script>		
+	<script type="text/javascript">
+        jQuery(function($){
+            $('[data-toggle="device_popover"]').popover({
+                container: 'body', 
+                html: true,
+                title: 'Recent Support Test:', 
+                content: function(){
+                        var id = $(this).attr('id'); 
+                        return $('#device_health_db_'+id).html();
+                    },
+                trigger: 'hover',
+            });
+           $('body').on('click', function (e) {
+                //did not click a popover toggle or popover
+                if ($(e.target).data('toggle') != 'device_popover') { 
+                    $('[data-toggle="device_popover"]').popover('hide');
+                }
+           });
+        });
+	</script>
+	<script type="text/javascript">
+        jQuery(function($){
+            $('[data-toggle="device_autocase_popover"]').popover({
+                container: 'body',
+                html: true,
+                title: 'OT6 Case Opened',
+                content: function(){
+                        var id = $(this).attr('id'); 
+                        return $('#autocase_'+id).html();
+                    },
+                trigger: 'hover',
+            });
+           $('body').on('click', function (e) {
+                //did not click a popover toggle or popover
+                if ($(e.target).data('toggle') != 'device_autocase_popover') {
+                    $('[data-toggle="device_autocase_popover"]').popover('hide');
+                }
+           });
+        });
+	</script><div class="devices_row"><table width="100%"><tbody><tr><td><div style="padding: 0px 0px 5px 3px; font-size: 17px; float: left;">F241-07-01-3750-1</div><span id="power_status_12563" style="float: left; margin: 4px 0px 0px 10px; background-color: rgb(94, 157, 95); border: none;" class="label label-success"><i class="fas fa-power-off"></i> <span id="power_status_text_12563">On</span></span><br><br><div id="loading_indicator_12563" style="padding: 0px 0px 5px 5px;"></div><div style="padding: 0px 0px 5px 3px; text-wrap: normal; width: 100%;"><span style="color: black;"><b>Status: </b> <span id="device_status_12563" style="color: black;">Idle</span></span></div><div id="recently_completed_12563" task_id="" style="padding: 0px 0px 5px 3px; text-wrap: normal; width: 100%;display: none;"></div></td><td width="50%"><span style="color: #6e6e6e; font-size: 13px; float: right; padding: 5px 10px 0px 0px;"> [ device_id 12563 ]</span></td></tr></tbody></table><table width="100%"><tbody><tr><td class="deviceFirstColumn" width="95%"><div style="padding: 0px 0px 5px 3px; text-wrap: normal;"><span><b>Last Known Image: </b>Unknown</span></div><div class="device_control"><button id="device_snapshot_12563" onclick="snapshot_device(12563)" title="Save a Snapshot of device [F241-07-01-3750-1]" type="button" class="btn btn-default btn-xs snapshot pull-left"><i class="glyphicon glyphicon-camera"></i> Device Snapshots</button>&nbsp;<button id="load_config_12563" onclick="autoconfig_device(12563)" title="Load device config [F241-07-01-3750-1] from existing Snapshot" type="button" class="btn btn-default btn-xs loadconfig pull-left"><i class="glyphicon glyphicon-refresh"></i> Load Device Snapshot</button>&nbsp;<button id="change_image_12563" onclick="change_image(12563)" title="Change image version for device [F241-07-01-3750-1]" type="button" class="btn btn-default btn-xs changeimage pull-left"><i class="glyphicon glyphicon-upload"></i> Change Image</button>&nbsp;<button id="job_history_12563" onclick="log_viewer(12563)" title="View job history for device [F241-07-01-3750-1]" type="button" class="btn btn-default btn-xs jobhistory pull-left "><i class="fa fa-history"></i> Job History</button>&nbsp;<button id="clean_device_12563" onclick="clean_device(12563)" title="Clean device [F241-07-01-3750-1]" type="button" class="btn btn-default btn-xs cleandevice pull-left"><i class="fa fa-trash"></i> Clean Device</button><div class="dropdown pull-left"><button class="btn btn-default btn-xs powercontrol dropdown-toggle" title="Power control for device [F241-07-01-3750-1]" type="button" id="devicePowerControl_12563" data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Power Control <span class="caret"></span></button><ul class="dropdown-menu" aria-labelledby="devicePowerControlMenu"><li title="Power On Device" id="li_device_power_on_12563" class=""><a style="color: #005200;" href="javascript:void(0)" onclick="change_device_power(12563, &#39;ON&#39;)" title="Power on device [F241-07-01-3750-1]"><i class="fa fa-power-off"></i> Power On</a></li><li title="Power Cycle Device" id="li_device_power_cycle_12563" class=""><a style="color: #e96300;" href="javascript:void(0)" onclick="change_device_power(12563, &#39;CYCLE&#39;)" title="Power cycle device [F241-07-01-3750-1]"><i class="fa fa-redo"></i> Power Cycle</a></li><li title="Power Off Device" id="li_device_power_off_12563" class=""><a href="javascript:void(0)" onclick="change_device_power(12563, &#39;OFF&#39;)" title="Power off device [F241-07-01-3750-1]"><i class="fa fa-power-off"></i> Power Off</a></li></ul></div></div></td></tr></tbody></table><table><tbody><tr><td class="deviceFirstColumn" width="20%"><div class="row"><div style="padding: 0px 18px; min-width: 150px;"><div style="padding: 0px 0px 5px 0px;"><strong>PID: </strong>WS-C3750X-48P-S</div><br></div></div></td><td class="deviceSecondColumn" width="60%"><table class="access_links"><thead><tr><td><b>Description</b></td><td><b>Access Link:</b> </td></tr></thead><tbody><tr><td>Console</td><td class="link"><a style="cursor:pointer;" href="telnet://F241-07-02-COMM:2019" id="access_link_12563.0" onclick="access_clicked(&#39;12563&#39;,&#39;telnet://F241-07-02-COMM:2019&#39;)">telnet://F241-07-02-COMM:2019</a></td><td><a class="clear_line" id="clear_line_12563.0" href="javascript:void(0);" onclick="clear_device_line(12563)" title="Clear Console Line for Device [F241-07-01-3750-1]"><i class="fa fa-terminal"></i> Clear Line</a></td></tr></tbody></table></td><td class="deviceThirdColumn" width="20%"><table id="deviceCredentials"><thead><tr><td>Username</td><td>Password</td><td>Enable</td></tr></thead><tbody></tbody></table></td></tr></tbody></table></div><div class="devices_row"><table width="100%"><tbody><tr><td><div style="padding: 0px 0px 5px 3px; font-size: 17px; float: left;">F241-07-01-3750-2</div><span id="power_status_12569" style="float: left; margin: 4px 0px 0px 10px; background-color: rgb(94, 157, 95); border: none;" class="label label-success"><i class="fas fa-power-off"></i> <span id="power_status_text_12569">On</span></span><br><br><div id="loading_indicator_12569" style="padding: 0px 0px 5px 5px;"></div><div style="padding: 0px 0px 5px 3px; text-wrap: normal; width: 100%;"><span style="color: black;"><b>Status: </b> <span id="device_status_12569" style="color: black;">Idle</span></span></div><div id="recently_completed_12569" task_id="" style="padding: 0px 0px 5px 3px; text-wrap: normal; width: 100%;display: none;"></div></td><td width="50%"><span style="color: #6e6e6e; font-size: 13px; float: right; padding: 5px 10px 0px 0px;"> [ device_id 12569 ]</span></td></tr></tbody></table><table width="100%"><tbody><tr><td class="deviceFirstColumn" width="95%"><div style="padding: 0px 0px 5px 3px; text-wrap: normal;"><span><b>Last Known Image: </b>Unknown</span></div><div class="device_control"><button id="device_snapshot_12569" onclick="snapshot_device(12569)" title="Save a Snapshot of device [F241-07-01-3750-2]" type="button" class="btn btn-default btn-xs snapshot pull-left"><i class="glyphicon glyphicon-camera"></i> Device Snapshots</button>&nbsp;<button id="load_config_12569" onclick="autoconfig_device(12569)" title="Load device config [F241-07-01-3750-2] from existing Snapshot" type="button" class="btn btn-default btn-xs loadconfig pull-left"><i class="glyphicon glyphicon-refresh"></i> Load Device Snapshot</button>&nbsp;<button id="change_image_12569" onclick="change_image(12569)" title="Change image version for device [F241-07-01-3750-2]" type="button" class="btn btn-default btn-xs changeimage pull-left"><i class="glyphicon glyphicon-upload"></i> Change Image</button>&nbsp;<button id="job_history_12569" onclick="log_viewer(12569)" title="View job history for device [F241-07-01-3750-2]" type="button" class="btn btn-default btn-xs jobhistory pull-left "><i class="fa fa-history"></i> Job History</button>&nbsp;<button id="clean_device_12569" onclick="clean_device(12569)" title="Clean device [F241-07-01-3750-2]" type="button" class="btn btn-default btn-xs cleandevice pull-left"><i class="fa fa-trash"></i> Clean Device</button><div class="dropdown pull-left"><button class="btn btn-default btn-xs powercontrol dropdown-toggle" title="Power control for device [F241-07-01-3750-2]" type="button" id="devicePowerControl_12569" data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Power Control <span class="caret"></span></button><ul class="dropdown-menu" aria-labelledby="devicePowerControlMenu"><li title="Power On Device" id="li_device_power_on_12569" class=""><a style="color: #005200;" href="javascript:void(0)" onclick="change_device_power(12569, &#39;ON&#39;)" title="Power on device [F241-07-01-3750-2]"><i class="fa fa-power-off"></i> Power On</a></li><li title="Power Cycle Device" id="li_device_power_cycle_12569" class=""><a style="color: #e96300;" href="javascript:void(0)" onclick="change_device_power(12569, &#39;CYCLE&#39;)" title="Power cycle device [F241-07-01-3750-2]"><i class="fa fa-redo"></i> Power Cycle</a></li><li title="Power Off Device" id="li_device_power_off_12569" class=""><a href="javascript:void(0)" onclick="change_device_power(12569, &#39;OFF&#39;)" title="Power off device [F241-07-01-3750-2]"><i class="fa fa-power-off"></i> Power Off</a></li></ul></div></div></td></tr></tbody></table><table><tbody><tr><td class="deviceFirstColumn" width="20%"><div class="row"><div style="padding: 0px 18px; min-width: 150px;"><div style="padding: 0px 0px 5px 0px;"><strong>PID: </strong>WS-C3750X-48P-S</div><br></div></div></td><td class="deviceSecondColumn" width="60%"><table class="access_links"><thead><tr><td><b>Description</b></td><td><b>Access Link:</b> </td></tr></thead><tbody><tr><td>Console</td><td class="link"><a style="cursor:pointer;" href="telnet://F241-07-02-COMM:2020" id="access_link_12569.0" onclick="access_clicked(&#39;12569&#39;,&#39;telnet://F241-07-02-COMM:2020&#39;)">telnet://F241-07-02-COMM:2020</a></td><td><a class="clear_line" id="clear_line_12569.0" href="javascript:void(0);" onclick="clear_device_line(12569)" title="Clear Console Line for Device [F241-07-01-3750-2]"><i class="fa fa-terminal"></i> Clear Line</a></td></tr></tbody></table></td><td class="deviceThirdColumn" width="20%"><table id="deviceCredentials"><thead><tr><td>Username</td><td>Password</td><td>Enable</td></tr></thead><tbody></tbody></table></td></tr></tbody></table></div><div class="devices_row"><table width="100%"><tbody><tr><td><div style="padding: 0px 0px 5px 3px; font-size: 17px; float: left;">F241-07-01-3700-3</div><span id="power_status_12548" style="float: left; margin: 4px 0px 0px 10px; background-color: rgb(94, 157, 95); border: none;" class="label label-success"><i class="fas fa-power-off"></i> <span id="power_status_text_12548">On</span></span><br><br><div id="loading_indicator_12548" style="padding: 0px 0px 5px 5px;"></div><div style="padding: 0px 0px 5px 3px; text-wrap: normal; width: 100%;"><span style="color: black;"><b>Status: </b> <span id="device_status_12548" style="color: black;">Idle</span></span></div><div id="recently_completed_12548" task_id="" style="padding: 0px 0px 5px 3px; text-wrap: normal; width: 100%;display: none;"></div></td><td width="50%"><span style="color: #6e6e6e; font-size: 13px; float: right; padding: 5px 10px 0px 0px;"> [ device_id 12548 ]</span></td></tr></tbody></table><table width="100%"><tbody><tr><td class="deviceFirstColumn" width="95%"><div style="padding: 0px 0px 5px 3px; text-wrap: normal;"><span><b>Last Known Image: </b>Unknown</span></div><div class="device_control"><button id="device_snapshot_12548" onclick="snapshot_device(12548)" title="Save a Snapshot of device [F241-07-01-3700-3]" type="button" class="btn btn-default btn-xs snapshot pull-left"><i class="glyphicon glyphicon-camera"></i> Device Snapshots</button>&nbsp;<button id="load_config_12548" onclick="autoconfig_device(12548)" title="Load device config [F241-07-01-3700-3] from existing Snapshot" type="button" class="btn btn-default btn-xs loadconfig pull-left"><i class="glyphicon glyphicon-refresh"></i> Load Device Snapshot</button>&nbsp;<button id="change_image_12548" onclick="change_image(12548)" title="Change image version for device [F241-07-01-3700-3]" type="button" class="btn btn-default btn-xs changeimage pull-left"><i class="glyphicon glyphicon-upload"></i> Change Image</button>&nbsp;<button id="job_history_12548" onclick="log_viewer(12548)" title="View job history for device [F241-07-01-3700-3]" type="button" class="btn btn-default btn-xs jobhistory pull-left "><i class="fa fa-history"></i> Job History</button>&nbsp;<button id="clean_device_12548" onclick="clean_device(12548)" title="Clean device [F241-07-01-3700-3]" type="button" class="btn btn-default btn-xs cleandevice pull-left"><i class="fa fa-trash"></i> Clean Device</button><div class="dropdown pull-left"><button class="btn btn-default btn-xs powercontrol dropdown-toggle" title="Power control for device [F241-07-01-3700-3]" type="button" id="devicePowerControl_12548" data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Power Control <span class="caret"></span></button><ul class="dropdown-menu" aria-labelledby="devicePowerControlMenu"><li title="Power On Device" id="li_device_power_on_12548" class=""><a style="color: #005200;" href="javascript:void(0)" onclick="change_device_power(12548, &#39;ON&#39;)" title="Power on device [F241-07-01-3700-3]"><i class="fa fa-power-off"></i> Power On</a></li><li title="Power Cycle Device" id="li_device_power_cycle_12548" class=""><a style="color: #e96300;" href="javascript:void(0)" onclick="change_device_power(12548, &#39;CYCLE&#39;)" title="Power cycle device [F241-07-01-3700-3]"><i class="fa fa-redo"></i> Power Cycle</a></li><li title="Power Off Device" id="li_device_power_off_12548" class=""><a href="javascript:void(0)" onclick="change_device_power(12548, &#39;OFF&#39;)" title="Power off device [F241-07-01-3700-3]"><i class="fa fa-power-off"></i> Power Off</a></li></ul></div></div></td></tr></tbody></table><table><tbody><tr><td class="deviceFirstColumn" width="20%"><div class="row"><div style="padding: 0px 18px; min-width: 150px;"><div style="padding: 0px 0px 5px 0px;"><strong>PID: </strong>WS-C3750X-12S-S</div><br></div></div></td><td class="deviceSecondColumn" width="60%"><table class="access_links"><thead><tr><td><b>Description</b></td><td><b>Access Link:</b> </td></tr></thead><tbody><tr><td>Console</td><td class="link"><a style="cursor:pointer;" href="telnet://F241-07-02-COMM:2021" id="access_link_12548.0" onclick="access_clicked(&#39;12548&#39;,&#39;telnet://F241-07-02-COMM:2021&#39;)">telnet://F241-07-02-COMM:2021</a></td><td><a class="clear_line" id="clear_line_12548.0" href="javascript:void(0);" onclick="clear_device_line(12548)" title="Clear Console Line for Device [F241-07-01-3700-3]"><i class="fa fa-terminal"></i> Clear Line</a></td></tr></tbody></table></td><td class="deviceThirdColumn" width="20%"><table id="deviceCredentials"><thead><tr><td>Username</td><td>Password</td><td>Enable</td></tr></thead><tbody></tbody></table></td></tr></tbody></table></div><div class="devices_row"><table width="100%"><tbody><tr><td><div style="padding: 0px 0px 5px 3px; font-size: 17px; float: left;">F241.01.07-ASR1000-1</div><span id="power_status_12572" style="float: left; margin: 4px 0px 0px 10px; background-color: rgb(94, 157, 95); border: none;" class="label label-success"><i class="fas fa-power-off"></i> <span id="power_status_text_12572">On</span></span><br><br><div id="loading_indicator_12572" style="padding: 0px 0px 5px 5px;"></div><div style="padding: 0px 0px 5px 3px; text-wrap: normal; width: 100%;"><span style="color: black;"><b>Status: </b> <span id="device_status_12572" style="color: black;">Idle</span></span></div><div id="recently_completed_12572" task_id="" style="padding: 0px 0px 5px 3px; text-wrap: normal; width: 100%;display: none;"></div></td><td width="50%"><span style="color: #6e6e6e; font-size: 13px; float: right; padding: 5px 10px 0px 0px;"> [ device_id 12572 ]</span></td></tr></tbody></table><table width="100%"><tbody><tr><td class="deviceFirstColumn" width="95%"><div style="padding: 0px 0px 5px 3px; text-wrap: normal;"><span><b>Last Known Image: </b>Unknown</span></div><div class="device_control"><button id="device_snapshot_12572" onclick="snapshot_device(12572)" title="Save a Snapshot of device [F241.01.07-ASR1000-1]" type="button" class="btn btn-default btn-xs snapshot pull-left"><i class="glyphicon glyphicon-camera"></i> Device Snapshots</button>&nbsp;<button id="load_config_12572" onclick="autoconfig_device(12572)" title="Load device config [F241.01.07-ASR1000-1] from existing Snapshot" type="button" class="btn btn-default btn-xs loadconfig pull-left"><i class="glyphicon glyphicon-refresh"></i> Load Device Snapshot</button>&nbsp;<button id="change_image_12572" onclick="change_image(12572)" title="Change image version for device [F241.01.07-ASR1000-1]" type="button" class="btn btn-default btn-xs changeimage pull-left"><i class="glyphicon glyphicon-upload"></i> Change Image</button>&nbsp;<button id="job_history_12572" onclick="log_viewer(12572)" title="View job history for device [F241.01.07-ASR1000-1]" type="button" class="btn btn-default btn-xs jobhistory pull-left "><i class="fa fa-history"></i> Job History</button>&nbsp;<button id="clean_device_12572" onclick="clean_device(12572)" title="Clean device [F241.01.07-ASR1000-1]" type="button" class="btn btn-default btn-xs cleandevice pull-left"><i class="fa fa-trash"></i> Clean Device</button><div class="dropdown pull-left"><button class="btn btn-default btn-xs powercontrol dropdown-toggle" title="Power control for device [F241.01.07-ASR1000-1]" type="button" id="devicePowerControl_12572" data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Power Control <span class="caret"></span></button><ul class="dropdown-menu" aria-labelledby="devicePowerControlMenu"><li title="Power On Device" id="li_device_power_on_12572" class=""><a style="color: #005200;" href="javascript:void(0)" onclick="change_device_power(12572, &#39;ON&#39;)" title="Power on device [F241.01.07-ASR1000-1]"><i class="fa fa-power-off"></i> Power On</a></li><li title="Power Cycle Device" id="li_device_power_cycle_12572" class=""><a style="color: #e96300;" href="javascript:void(0)" onclick="change_device_power(12572, &#39;CYCLE&#39;)" title="Power cycle device [F241.01.07-ASR1000-1]"><i class="fa fa-redo"></i> Power Cycle</a></li><li title="Power Off Device" id="li_device_power_off_12572" class=""><a href="javascript:void(0)" onclick="change_device_power(12572, &#39;OFF&#39;)" title="Power off device [F241.01.07-ASR1000-1]"><i class="fa fa-power-off"></i> Power Off</a></li></ul></div></div></td></tr></tbody></table><table><tbody><tr><td class="deviceFirstColumn" width="20%"><div class="row"><div style="padding: 0px 18px; min-width: 150px;"><div style="padding: 0px 0px 5px 0px;"><strong>PID: </strong>ASR1001-HX</div><br></div></div></td><td class="deviceSecondColumn" width="60%"><table class="access_links"><thead><tr><td><b>Description</b></td><td><b>Access Link:</b> </td></tr></thead><tbody><tr><td>Console</td><td class="link"><a style="cursor:pointer;" href="telnet://F241-07-02-COMM:2024" id="access_link_12572.0" onclick="access_clicked(&#39;12572&#39;,&#39;telnet://F241-07-02-COMM:2024&#39;)">telnet://F241-07-02-COMM:2024</a></td><td><a class="clear_line" id="clear_line_12572.0" href="javascript:void(0);" onclick="clear_device_line(12572)" title="Clear Console Line for Device [F241.01.07-ASR1000-1]"><i class="fa fa-terminal"></i> Clear Line</a></td></tr></tbody></table></td><td class="deviceThirdColumn" width="20%"><table id="deviceCredentials"><thead><tr><td>Username</td><td>Password</td><td>Enable</td></tr></thead><tbody></tbody></table></td></tr></tbody></table></div><div class="devices_row"><table width="100%"><tbody><tr><td><div style="padding: 0px 0px 5px 3px; font-size: 17px; float: left;">F241.01.07-ASR1000-2</div><span id="power_status_12573" style="float: left; margin: 4px 0px 0px 10px; background-color: rgb(94, 157, 95); border: none;" class="label label-success"><i class="fas fa-power-off"></i> <span id="power_status_text_12573">On</span></span><br><br><div id="loading_indicator_12573" style="padding: 0px 0px 5px 5px;"></div><div style="padding: 0px 0px 5px 3px; text-wrap: normal; width: 100%;"><span style="color: black;"><b>Status: </b> <span id="device_status_12573" style="color: black;">Idle</span></span></div><div id="recently_completed_12573" task_id="" style="padding: 0px 0px 5px 3px; text-wrap: normal; width: 100%;display: none;"></div></td><td width="50%"><span style="color: #6e6e6e; font-size: 13px; float: right; padding: 5px 10px 0px 0px;"> [ device_id 12573 ]</span></td></tr></tbody></table><table width="100%"><tbody><tr><td class="deviceFirstColumn" width="95%"><div style="padding: 0px 0px 5px 3px; text-wrap: normal;"><span><b>Last Known Image: </b>Unknown</span></div><div class="device_control"><button id="device_snapshot_12573" onclick="snapshot_device(12573)" title="Save a Snapshot of device [F241.01.07-ASR1000-2]" type="button" class="btn btn-default btn-xs snapshot pull-left"><i class="glyphicon glyphicon-camera"></i> Device Snapshots</button>&nbsp;<button id="load_config_12573" onclick="autoconfig_device(12573)" title="Load device config [F241.01.07-ASR1000-2] from existing Snapshot" type="button" class="btn btn-default btn-xs loadconfig pull-left"><i class="glyphicon glyphicon-refresh"></i> Load Device Snapshot</button>&nbsp;<button id="change_image_12573" onclick="change_image(12573)" title="Change image version for device [F241.01.07-ASR1000-2]" type="button" class="btn btn-default btn-xs changeimage pull-left"><i class="glyphicon glyphicon-upload"></i> Change Image</button>&nbsp;<button id="job_history_12573" onclick="log_viewer(12573)" title="View job history for device [F241.01.07-ASR1000-2]" type="button" class="btn btn-default btn-xs jobhistory pull-left "><i class="fa fa-history"></i> Job History</button>&nbsp;<button id="clean_device_12573" onclick="clean_device(12573)" title="Clean device [F241.01.07-ASR1000-2]" type="button" class="btn btn-default btn-xs cleandevice pull-left"><i class="fa fa-trash"></i> Clean Device</button><div class="dropdown pull-left"><button class="btn btn-default btn-xs powercontrol dropdown-toggle" title="Power control for device [F241.01.07-ASR1000-2]" type="button" id="devicePowerControl_12573" data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Power Control <span class="caret"></span></button><ul class="dropdown-menu" aria-labelledby="devicePowerControlMenu"><li title="Power On Device" id="li_device_power_on_12573" class=""><a style="color: #005200;" href="javascript:void(0)" onclick="change_device_power(12573, &#39;ON&#39;)" title="Power on device [F241.01.07-ASR1000-2]"><i class="fa fa-power-off"></i> Power On</a></li><li title="Power Cycle Device" id="li_device_power_cycle_12573" class=""><a style="color: #e96300;" href="javascript:void(0)" onclick="change_device_power(12573, &#39;CYCLE&#39;)" title="Power cycle device [F241.01.07-ASR1000-2]"><i class="fa fa-redo"></i> Power Cycle</a></li><li title="Power Off Device" id="li_device_power_off_12573" class=""><a href="javascript:void(0)" onclick="change_device_power(12573, &#39;OFF&#39;)" title="Power off device [F241.01.07-ASR1000-2]"><i class="fa fa-power-off"></i> Power Off</a></li></ul></div></div></td></tr></tbody></table><table><tbody><tr><td class="deviceFirstColumn" width="20%"><div class="row"><div style="padding: 0px 18px; min-width: 150px;"><div style="padding: 0px 0px 5px 0px;"><strong>PID: </strong>ASR1001-HX</div><br></div></div></td><td class="deviceSecondColumn" width="60%"><table class="access_links"><thead><tr><td><b>Description</b></td><td><b>Access Link:</b> </td></tr></thead><tbody><tr><td>Console</td><td class="link"><a style="cursor:pointer;" href="telnet://F241-07-02-COMM:2025" id="access_link_12573.0" onclick="access_clicked(&#39;12573&#39;,&#39;telnet://F241-07-02-COMM:2025&#39;)">telnet://F241-07-02-COMM:2025</a></td><td><a class="clear_line" id="clear_line_12573.0" href="javascript:void(0);" onclick="clear_device_line(12573)" title="Clear Console Line for Device [F241.01.07-ASR1000-2]"><i class="fa fa-terminal"></i> Clear Line</a></td></tr></tbody></table></td><td class="deviceThirdColumn" width="20%"><table id="deviceCredentials"><thead><tr><td>Username</td><td>Password</td><td>Enable</td></tr></thead><tbody></tbody></table></td></tr></tbody></table></div><div class="devices_row"><table width="100%"><tbody><tr><td><div style="padding: 0px 0px 5px 3px; font-size: 17px; float: left;">F241.07.01-3700-4</div><span id="power_status_12570" style="float: left; margin: 4px 0px 0px 10px; background-color: rgb(94, 157, 95); border: none;" class="label label-success"><i class="fas fa-power-off"></i> <span id="power_status_text_12570">On</span></span><br><br><div id="loading_indicator_12570" style="padding: 0px 0px 5px 5px;"></div><div style="padding: 0px 0px 5px 3px; text-wrap: normal; width: 100%;"><span style="color: black;"><b>Status: </b> <span id="device_status_12570" style="color: black;">Idle</span></span></div><div id="recently_completed_12570" task_id="" style="padding: 0px 0px 5px 3px; text-wrap: normal; width: 100%;display: none;"></div></td><td width="50%"><span style="color: #6e6e6e; font-size: 13px; float: right; padding: 5px 10px 0px 0px;"> [ device_id 12570 ]</span></td></tr></tbody></table><table width="100%"><tbody><tr><td class="deviceFirstColumn" width="95%"><div style="padding: 0px 0px 5px 3px; text-wrap: normal;"><span><b>Last Known Image: </b>Unknown</span></div><div class="device_control"><button id="device_snapshot_12570" onclick="snapshot_device(12570)" title="Save a Snapshot of device [F241.07.01-3700-4]" type="button" class="btn btn-default btn-xs snapshot pull-left"><i class="glyphicon glyphicon-camera"></i> Device Snapshots</button>&nbsp;<button id="load_config_12570" onclick="autoconfig_device(12570)" title="Load device config [F241.07.01-3700-4] from existing Snapshot" type="button" class="btn btn-default btn-xs loadconfig pull-left"><i class="glyphicon glyphicon-refresh"></i> Load Device Snapshot</button>&nbsp;<button id="change_image_12570" onclick="change_image(12570)" title="Change image version for device [F241.07.01-3700-4]" type="button" class="btn btn-default btn-xs changeimage pull-left"><i class="glyphicon glyphicon-upload"></i> Change Image</button>&nbsp;<button id="job_history_12570" onclick="log_viewer(12570)" title="View job history for device [F241.07.01-3700-4]" type="button" class="btn btn-default btn-xs jobhistory pull-left "><i class="fa fa-history"></i> Job History</button>&nbsp;<button id="clean_device_12570" onclick="clean_device(12570)" title="Clean device [F241.07.01-3700-4]" type="button" class="btn btn-default btn-xs cleandevice pull-left"><i class="fa fa-trash"></i> Clean Device</button><div class="dropdown pull-left"><button class="btn btn-default btn-xs powercontrol dropdown-toggle" title="Power control for device [F241.07.01-3700-4]" type="button" id="devicePowerControl_12570" data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Power Control <span class="caret"></span></button><ul class="dropdown-menu" aria-labelledby="devicePowerControlMenu"><li title="Power On Device" id="li_device_power_on_12570" class=""><a style="color: #005200;" href="javascript:void(0)" onclick="change_device_power(12570, &#39;ON&#39;)" title="Power on device [F241.07.01-3700-4]"><i class="fa fa-power-off"></i> Power On</a></li><li title="Power Cycle Device" id="li_device_power_cycle_12570" class=""><a style="color: #e96300;" href="javascript:void(0)" onclick="change_device_power(12570, &#39;CYCLE&#39;)" title="Power cycle device [F241.07.01-3700-4]"><i class="fa fa-redo"></i> Power Cycle</a></li><li title="Power Off Device" id="li_device_power_off_12570" class=""><a href="javascript:void(0)" onclick="change_device_power(12570, &#39;OFF&#39;)" title="Power off device [F241.07.01-3700-4]"><i class="fa fa-power-off"></i> Power Off</a></li></ul></div></div></td></tr></tbody></table><table><tbody><tr><td class="deviceFirstColumn" width="20%"><div class="row"><div style="padding: 0px 18px; min-width: 150px;"><div style="padding: 0px 0px 5px 0px;"><strong>PID: </strong>WS-C3750X-48T-L</div><br></div></div></td><td class="deviceSecondColumn" width="60%"><table class="access_links"><thead><tr><td><b>Description</b></td><td><b>Access Link:</b> </td></tr></thead><tbody><tr><td>Console</td><td class="link"><a style="cursor:pointer;" href="telnet://F241-07-02-COMM:2022" id="access_link_12570.0" onclick="access_clicked(&#39;12570&#39;,&#39;telnet://F241-07-02-COMM:2022&#39;)">telnet://F241-07-02-COMM:2022</a></td><td><a class="clear_line" id="clear_line_12570.0" href="javascript:void(0);" onclick="clear_device_line(12570)" title="Clear Console Line for Device [F241.07.01-3700-4]"><i class="fa fa-terminal"></i> Clear Line</a></td></tr></tbody></table></td><td class="deviceThirdColumn" width="20%"><table id="deviceCredentials"><thead><tr><td>Username</td><td>Password</td><td>Enable</td></tr></thead><tbody></tbody></table></td></tr></tbody></table></div><div class="devices_row"><table width="100%"><tbody><tr><td><div style="padding: 0px 0px 5px 3px; font-size: 17px; float: left;">F241.07.01-3850</div><span id="power_status_12571" style="float: left; margin: 4px 0px 0px 10px; background-color: rgb(94, 157, 95); border: none;" class="label label-success"><i class="fas fa-power-off"></i> <span id="power_status_text_12571">On</span></span><br><br><div id="loading_indicator_12571" style="padding: 0px 0px 5px 5px;"></div><div style="padding: 0px 0px 5px 3px; text-wrap: normal; width: 100%;"><span style="color: black;"><b>Status: </b> <span id="device_status_12571" style="color: black;">Ready...</span></span></div><div id="recently_completed_12571" task_id="" style="padding: 0px 0px 5px 3px; text-wrap: normal; width: 100%;display: none;"></div></td><td width="50%"><span style="color: #6e6e6e; font-size: 13px; float: right; padding: 5px 10px 0px 0px;"> [ device_id 12571 ]</span></td></tr></tbody></table><table width="100%"><tbody><tr><td class="deviceFirstColumn" width="95%"><div style="padding: 0px 0px 5px 3px; text-wrap: normal;"><span><b>Last Known Image: </b>Unknown</span></div><div class="device_control"><button id="device_snapshot_12571" onclick="snapshot_device(12571)" title="Save a Snapshot of device [F241.07.01-3850]" type="button" class="btn btn-default btn-xs snapshot pull-left"><i class="glyphicon glyphicon-camera"></i> Device Snapshots</button>&nbsp;<button id="load_config_12571" onclick="autoconfig_device(12571)" title="Load device config [F241.07.01-3850] from existing Snapshot" type="button" class="btn btn-default btn-xs loadconfig pull-left"><i class="glyphicon glyphicon-refresh"></i> Load Device Snapshot</button>&nbsp;<button id="change_image_12571" onclick="change_image(12571)" title="Change image version for device [F241.07.01-3850]" type="button" class="btn btn-default btn-xs changeimage pull-left"><i class="glyphicon glyphicon-upload"></i> Change Image</button>&nbsp;<button id="job_history_12571" onclick="log_viewer(12571)" title="View job history for device [F241.07.01-3850]" type="button" class="btn btn-default btn-xs jobhistory pull-left "><i class="fa fa-history"></i> Job History</button>&nbsp;<button id="clean_device_12571" onclick="clean_device(12571)" title="Clean device [F241.07.01-3850]" type="button" class="btn btn-default btn-xs cleandevice pull-left"><i class="fa fa-trash"></i> Clean Device</button><div class="dropdown pull-left"><button class="btn btn-default btn-xs powercontrol dropdown-toggle" title="Power control for device [F241.07.01-3850]" type="button" id="devicePowerControl_12571" data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Power Control <span class="caret"></span></button><ul class="dropdown-menu" aria-labelledby="devicePowerControlMenu"><li title="Power On Device" id="li_device_power_on_12571" class=""><a style="color: #005200;" href="javascript:void(0)" onclick="change_device_power(12571, &#39;ON&#39;)" title="Power on device [F241.07.01-3850]"><i class="fa fa-power-off"></i> Power On</a></li><li title="Power Cycle Device" id="li_device_power_cycle_12571" class=""><a style="color: #e96300;" href="javascript:void(0)" onclick="change_device_power(12571, &#39;CYCLE&#39;)" title="Power cycle device [F241.07.01-3850]"><i class="fa fa-redo"></i> Power Cycle</a></li><li title="Power Off Device" id="li_device_power_off_12571" class=""><a href="javascript:void(0)" onclick="change_device_power(12571, &#39;OFF&#39;)" title="Power off device [F241.07.01-3850]"><i class="fa fa-power-off"></i> Power Off</a></li></ul></div></div></td></tr></tbody></table><table><tbody><tr><td class="deviceFirstColumn" width="20%"><div class="row"><div style="padding: 0px 18px; min-width: 150px;"><div style="padding: 0px 0px 5px 0px;"><strong>PID: </strong>WS-C3850-24P-S</div><br></div></div></td><td class="deviceSecondColumn" width="60%"><table class="access_links"><thead><tr><td><b>Description</b></td><td><b>Access Link:</b> </td></tr></thead><tbody><tr><td>Console</td><td class="link"><a style="cursor:pointer;" href="telnet://F241-07-02-COMM:2023" id="access_link_12571.0" onclick="access_clicked(&#39;12571&#39;,&#39;telnet://F241-07-02-COMM:2023&#39;)">telnet://F241-07-02-COMM:2023</a></td><td><a class="clear_line" id="clear_line_12571.0" href="javascript:void(0);" onclick="clear_device_line(12571)" title="Clear Console Line for Device [F241.07.01-3850]"><i class="fa fa-terminal"></i> Clear Line</a></td></tr></tbody></table></td><td class="deviceThirdColumn" width="20%"><table id="deviceCredentials"><thead><tr><td>Username</td><td>Password</td><td>Enable</td></tr></thead><tbody></tbody></table></td></tr></tbody></table></div><div class="devices_row"><table width="100%"><tbody><tr><td><div style="padding: 0px 0px 5px 3px; font-size: 17px; float: left;">F241.07.01-ASR1002-HX-1</div><span id="power_status_12574" style="float: left; margin: 4px 0px 0px 10px; background-color: rgb(94, 157, 95); border: none;" class="label label-success"><i class="fas fa-power-off"></i> <span id="power_status_text_12574">On</span></span><br><br><div id="loading_indicator_12574" style="padding: 0px 0px 5px 5px;"></div><div style="padding: 0px 0px 5px 3px; text-wrap: normal; width: 100%;"><span style="color: black;"><b>Status: </b> <span id="device_status_12574" style="color: black;">Idle</span></span></div><div id="recently_completed_12574" task_id="" style="padding: 0px 0px 5px 3px; text-wrap: normal; width: 100%;display: none;"></div></td><td width="50%"><span style="color: #6e6e6e; font-size: 13px; float: right; padding: 5px 10px 0px 0px;"> [ device_id 12574 ]</span></td></tr></tbody></table><table width="100%"><tbody><tr><td class="deviceFirstColumn" width="95%"><div style="padding: 0px 0px 5px 3px; text-wrap: normal;"><span><b>Last Known Image: </b>Unknown</span></div><div class="device_control"><button id="device_snapshot_12574" onclick="snapshot_device(12574)" title="Save a Snapshot of device [F241.07.01-ASR1002-HX-1]" type="button" class="btn btn-default btn-xs snapshot pull-left"><i class="glyphicon glyphicon-camera"></i> Device Snapshots</button>&nbsp;<button id="load_config_12574" onclick="autoconfig_device(12574)" title="Load device config [F241.07.01-ASR1002-HX-1] from existing Snapshot" type="button" class="btn btn-default btn-xs loadconfig pull-left"><i class="glyphicon glyphicon-refresh"></i> Load Device Snapshot</button>&nbsp;<button id="change_image_12574" onclick="change_image(12574)" title="Change image version for device [F241.07.01-ASR1002-HX-1]" type="button" class="btn btn-default btn-xs changeimage pull-left"><i class="glyphicon glyphicon-upload"></i> Change Image</button>&nbsp;<button id="job_history_12574" onclick="log_viewer(12574)" title="View job history for device [F241.07.01-ASR1002-HX-1]" type="button" class="btn btn-default btn-xs jobhistory pull-left "><i class="fa fa-history"></i> Job History</button>&nbsp;<button id="clean_device_12574" onclick="clean_device(12574)" title="Clean device [F241.07.01-ASR1002-HX-1]" type="button" class="btn btn-default btn-xs cleandevice pull-left"><i class="fa fa-trash"></i> Clean Device</button><div class="dropdown pull-left"><button class="btn btn-default btn-xs powercontrol dropdown-toggle" title="Power control for device [F241.07.01-ASR1002-HX-1]" type="button" id="devicePowerControl_12574" data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Power Control <span class="caret"></span></button><ul class="dropdown-menu" aria-labelledby="devicePowerControlMenu"><li title="Power On Device" id="li_device_power_on_12574" class=""><a style="color: #005200;" href="javascript:void(0)" onclick="change_device_power(12574, &#39;ON&#39;)" title="Power on device [F241.07.01-ASR1002-HX-1]"><i class="fa fa-power-off"></i> Power On</a></li><li title="Power Cycle Device" id="li_device_power_cycle_12574" class=""><a style="color: #e96300;" href="javascript:void(0)" onclick="change_device_power(12574, &#39;CYCLE&#39;)" title="Power cycle device [F241.07.01-ASR1002-HX-1]"><i class="fa fa-redo"></i> Power Cycle</a></li><li title="Power Off Device" id="li_device_power_off_12574" class=""><a href="javascript:void(0)" onclick="change_device_power(12574, &#39;OFF&#39;)" title="Power off device [F241.07.01-ASR1002-HX-1]"><i class="fa fa-power-off"></i> Power Off</a></li></ul></div></div></td></tr></tbody></table><table><tbody><tr><td class="deviceFirstColumn" width="20%"><div class="row"><div style="padding: 0px 18px; min-width: 150px;"><div style="padding: 0px 0px 5px 0px;"><strong>PID: </strong>ASR1002-HX</div><br></div></div></td><td class="deviceSecondColumn" width="60%"><table class="access_links"><thead><tr><td><b>Description</b></td><td><b>Access Link:</b> </td></tr></thead><tbody><tr><td>Console</td><td class="link"><a style="cursor:pointer;" href="telnet://F241-07-02-COMM:2026" id="access_link_12574.0" onclick="access_clicked(&#39;12574&#39;,&#39;telnet://F241-07-02-COMM:2026&#39;)">telnet://F241-07-02-COMM:2026</a></td><td><a class="clear_line" id="clear_line_12574.0" href="javascript:void(0);" onclick="clear_device_line(12574)" title="Clear Console Line for Device [F241.07.01-ASR1002-HX-1]"><i class="fa fa-terminal"></i> Clear Line</a></td></tr></tbody></table></td><td class="deviceThirdColumn" width="20%"><table id="deviceCredentials"><thead><tr><td>Username</td><td>Password</td><td>Enable</td></tr></thead><tbody></tbody></table></td></tr></tbody></table></div><div class="devices_row"><table width="100%"><tbody><tr><td><div style="padding: 0px 0px 5px 3px; font-size: 17px; float: left;">F241.07.01-ASR1002-HX-2</div><span id="power_status_12583" style="float: left; margin: 4px 0px 0px 10px; background-color: rgb(94, 157, 95); border: none;" class="label label-success"><i class="fas fa-power-off"></i> <span id="power_status_text_12583">On</span></span><br><br><div id="loading_indicator_12583" style="padding: 0px 0px 5px 5px;"></div><div style="padding: 0px 0px 5px 3px; text-wrap: normal; width: 100%;"><span style="color: black;"><b>Status: </b> <span id="device_status_12583" style="color: black;">Idle</span></span></div><div id="recently_completed_12583" task_id="" style="padding: 0px 0px 5px 3px; text-wrap: normal; width: 100%;display: none;"></div></td><td width="50%"><span style="color: #6e6e6e; font-size: 13px; float: right; padding: 5px 10px 0px 0px;"> [ device_id 12583 ]</span></td></tr></tbody></table><table width="100%"><tbody><tr><td class="deviceFirstColumn" width="95%"><div style="padding: 0px 0px 5px 3px; text-wrap: normal;"><span><b>Last Known Image: </b>Unknown</span></div><div class="device_control"><button id="device_snapshot_12583" onclick="snapshot_device(12583)" title="Save a Snapshot of device [F241.07.01-ASR1002-HX-2]" type="button" class="btn btn-default btn-xs snapshot pull-left"><i class="glyphicon glyphicon-camera"></i> Device Snapshots</button>&nbsp;<button id="load_config_12583" onclick="autoconfig_device(12583)" title="Load device config [F241.07.01-ASR1002-HX-2] from existing Snapshot" type="button" class="btn btn-default btn-xs loadconfig pull-left"><i class="glyphicon glyphicon-refresh"></i> Load Device Snapshot</button>&nbsp;<button id="change_image_12583" onclick="change_image(12583)" title="Change image version for device [F241.07.01-ASR1002-HX-2]" type="button" class="btn btn-default btn-xs changeimage pull-left"><i class="glyphicon glyphicon-upload"></i> Change Image</button>&nbsp;<button id="job_history_12583" onclick="log_viewer(12583)" title="View job history for device [F241.07.01-ASR1002-HX-2]" type="button" class="btn btn-default btn-xs jobhistory pull-left "><i class="fa fa-history"></i> Job History</button>&nbsp;<button id="clean_device_12583" onclick="clean_device(12583)" title="Clean device [F241.07.01-ASR1002-HX-2]" type="button" class="btn btn-default btn-xs cleandevice pull-left"><i class="fa fa-trash"></i> Clean Device</button><div class="dropdown pull-left"><button class="btn btn-default btn-xs powercontrol dropdown-toggle" title="Power control for device [F241.07.01-ASR1002-HX-2]" type="button" id="devicePowerControl_12583" data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Power Control <span class="caret"></span></button><ul class="dropdown-menu" aria-labelledby="devicePowerControlMenu"><li title="Power On Device" id="li_device_power_on_12583" class=""><a style="color: #005200;" href="javascript:void(0)" onclick="change_device_power(12583, &#39;ON&#39;)" title="Power on device [F241.07.01-ASR1002-HX-2]"><i class="fa fa-power-off"></i> Power On</a></li><li title="Power Cycle Device" id="li_device_power_cycle_12583" class=""><a style="color: #e96300;" href="javascript:void(0)" onclick="change_device_power(12583, &#39;CYCLE&#39;)" title="Power cycle device [F241.07.01-ASR1002-HX-2]"><i class="fa fa-redo"></i> Power Cycle</a></li><li title="Power Off Device" id="li_device_power_off_12583" class=""><a href="javascript:void(0)" onclick="change_device_power(12583, &#39;OFF&#39;)" title="Power off device [F241.07.01-ASR1002-HX-2]"><i class="fa fa-power-off"></i> Power Off</a></li></ul></div></div></td></tr></tbody></table><table><tbody><tr><td class="deviceFirstColumn" width="20%"><div class="row"><div style="padding: 0px 18px; min-width: 150px;"><div style="padding: 0px 0px 5px 0px;"><strong>PID: </strong>ASR1002-HX</div><br></div></div></td><td class="deviceSecondColumn" width="60%"><table class="access_links"><thead><tr><td><b>Description</b></td><td><b>Access Link:</b> </td></tr></thead><tbody><tr><td>Console</td><td class="link"><a style="cursor:pointer;" href="telnet://F241-07-02-COMM:2027" id="access_link_12583.0" onclick="access_clicked(&#39;12583&#39;,&#39;telnet://F241-07-02-COMM:2027&#39;)">telnet://F241-07-02-COMM:2027</a></td><td><a class="clear_line" id="clear_line_12583.0" href="javascript:void(0);" onclick="clear_device_line(12583)" title="Clear Console Line for Device [F241.07.01-ASR1002-HX-2]"><i class="fa fa-terminal"></i> Clear Line</a></td></tr></tbody></table></td><td class="deviceThirdColumn" width="20%"><table id="deviceCredentials"><thead><tr><td>Username</td><td>Password</td><td>Enable</td></tr></thead><tbody></tbody></table></td></tr></tbody></table></div>
+
+    <script>
+        var devices_in_progress = [];
+        [].forEach(function(j){
+            temp_disable_device_automation_buttons(j['device_id']);
+        });
+    </script>
+</div>
+<!-- end main container -->
+<div style="clear: both;"></div>
+
+
+
+</div></body></html>
